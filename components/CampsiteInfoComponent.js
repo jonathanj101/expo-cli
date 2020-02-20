@@ -171,7 +171,7 @@ class CampsiteInfo extends Component {
               style={{ paddingVertical: 10 }}
               value={this.state.text}
             />
-            <View>
+            <View style={{ marginTop: 10 }}>
               <Button
                 title='Submit'
                 color='#5637DD'
@@ -181,17 +181,17 @@ class CampsiteInfo extends Component {
                 }}
 
               />
-            </View>
-            <View style={{ margin: 10 }}>
+              <View style={{ margin: 10 }}>
               <Button
-                onPress={() => {
-                  this.toggleModal();
-                  this.resetForm();
-                }}
+              onPress={() => {
+                this.toggleModal();
+                this.resetForm();
+              }}
 
-                color='#808080'
-                title='Cancel'
+              color='#808080'
+              title='Cancel'
               />
+              </View>
             </View>
           </View>
         </Modal>
