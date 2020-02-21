@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import Swipeout from 'react-native-swipeout';
 import { FlatList, View, Text, Alert } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import * as Animatable from 'react-native-animatable';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -50,12 +51,14 @@ class Favorites extends Component {
       ];
       return (
         <Swipeout right={rightButton} autoClose={true}>
-          <ListItem
-            title={item.name}
-            subtitle={item.description}
-            leftAvatar={{ source: { uri: baseUrl + item.image } }}
-            onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })}
-          />
+          <Animatable.View animation='fadeInDown' duration={2000}>
+            <ListItem
+              title={item.name}
+              subtitle={item.description}
+              leftAvatar={{ source: { uri: baseUrl + item.image } }}
+              onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })}
+            />
+          </Animatable.View>
         </Swipeout>
       );
     };
